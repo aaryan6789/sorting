@@ -97,6 +97,7 @@ void merge (int arr[], int start, int mid, int end) {
 	int nl = mid - start + 1;
 	int nr = end - mid ;
 
+	// Create temporary Arrays
 	int L[nl];
 	int R[nr];
 
@@ -128,7 +129,7 @@ void merge (int arr[], int start, int mid, int end) {
 		k++;
 	}
 
-	while (i<nr){
+	while (j<nr){
 		arr[k] = R[j];
 		j++;
 		k++;
@@ -153,18 +154,12 @@ int _partition(int arr[], int start, int end){
 }
 
 void quicksort(int arr[], int start, int end){
-	if (start < end){
+	if (start < end){			//<----- Pay attention here, not while its if
 		int pIndex = _partition(arr, start, end);
-		quicksort(arr, start, pIndex-1);
+		quicksort(arr, start, pIndex-1);		//<----- Pay attention, its pIndex-1
 		quicksort(arr, pIndex, end);
 	}
 }
-
-// Binary Search
-
-
-
-
 
 int main () {
 	int n;
